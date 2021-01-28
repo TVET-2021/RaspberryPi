@@ -37,7 +37,8 @@ class BingoServer:
             client_thread = threading.Thread(target=self.handler_client, args=(client_socket,))
             client_thread.daemon = True
             client_thread.start()
-
+        del self.user_list[user_name]
+        
     def handler_client(self, client_sock):
 
         try:
